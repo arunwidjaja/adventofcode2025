@@ -27,4 +27,4 @@ for adjustment in data:
     if currentNumber == 0:
         timesZero += 1
 
-print('Solution:', timesZero)
+print(f'Solution: {timesZero}')

@@ -12,6 +12,10 @@ with open('advent_2_input.txt', 'r') as file:
 
 invalids = {}
 
+"""
+Helper function to check if a number is made up of a repeating set.
+In this case, we can assume that the length of the number is even.
+"""
 def isRepeating(num):
     idx_1 = 0
     idx_2 = int(len(str(num)) / 2)
@@ -25,13 +29,14 @@ def isRepeating(num):
 for curRange in data:
     start = int(curRange.split('-')[0])
     end = int(curRange.split('-')[1])
-    print(f'\nChecking range: {start}-{end}')
-    allNums = range(start, end + 1)
+    rangeNums = range(start, end + 1)
 
-    for num in allNums:
+    print(f'\nChecking range: {start} - {end}')
+    for num in rangeNums:
         # Since invalid IDs are repeating sets, their length must be even
         if len(str(num)) % 2 != 0:
             continue
+        # Check cache in case ranges are overlapping
         if num in invalids:
             invalids[num] += 1
             print(f'Found invalid ID: {num} (cached)')
