@@ -20,10 +20,10 @@ timesZero = 0
 
 print('Start dial at', currentNumber)
 for adjustment in data:
-    print(f'Move dial by: {adjustment:>4}')
+    print(f'Move dial by: {adjustment}')
     currentNumber += adjustment
     currentNumber = currentNumber % (DIAL_RANGE + 1)
-    print(f'Dial now at:  {currentNumber:>4}\n')
+    print(f'Dial now at:  {currentNumber}\n')
     if currentNumber == 0:
         timesZero += 1
 

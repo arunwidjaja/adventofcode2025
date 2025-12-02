@@ -25,7 +25,7 @@ def isRepeating(num):
 for curRange in data:
     start = int(curRange.split('-')[0])
     end = int(curRange.split('-')[1])
-    print(f'Checking range: {start}-{end}')
+    print(f'\nChecking range: {start}-{end}')
     allNums = range(start, end + 1)
 
     for num in allNums:
@@ -41,6 +41,6 @@ for curRange in data:
             print(f'Found invalid ID: {num}')
 
 solution = sum(key * value for key, value in invalids.items())
-print('Solution:', solution)
+print('\nSolution:', solution)
 
 
