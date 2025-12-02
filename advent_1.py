@@ -1,3 +1,8 @@
+# Advent of Code 2025 - Day 1
+
+# Dial starts at 50
+# Dial goes from 0 to 99
+# The solution is the number of times the dial lands on 0 after an adjustment
 
 STARTING_POSITION = 50
 DIAL_RANGE = 99
