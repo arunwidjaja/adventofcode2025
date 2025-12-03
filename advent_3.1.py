@@ -1,4 +1,4 @@
-# Advent of Code 2025 - Day 3
+# Advent of Code 2025 - Day 3 Part 2
 
 # Find the max possible combination of 2 digits on each line
 #   The digits must be in the order they are listed

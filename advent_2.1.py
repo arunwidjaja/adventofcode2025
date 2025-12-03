@@ -1,7 +1,7 @@
 # Advent of Code 2025 - Day 2
 
 # ID ranges are separated by a dash.
-# IDs are invalid if they consist of a repeating set of numbers.
+# IDs are invalid if they consist of a set of numbers repeated twice.
 # For example:
 #   1212 is invalid (12 repeated)
 #   55 is invalid (5 repeated)
