@@ -27,25 +27,25 @@ def solvePartOne(data: list[str]):
     """
     sum = 0
     for line in data:
-        index1 = 0
-        index2 = 1
-        digit1 = line[index1]
-        digit2 = line[index2]
+        index_1 = 0
+        index_2 = 1
+        digit_1 = line[index_1]
+        digit_2 = line[index_2]
 
-        while index2 < len(line):
-            if digit1 == '9' and digit2 == '9':
+        while index_2 < len(line):
+            if digit_1 == '9' and digit_2 == '9':
                 break
-            if line[index2] > digit1 and index2 < len(line) - 1:
-                index1 = index2
-                index2 += 1
-                digit1 = line[index1]
-                digit2 = line[index2]
-            elif line[index2] > digit2:
-                digit2 = line[index2]
-                index2 += 1
+            if line[index_2] > digit_1 and index_2 < len(line) - 1:
+                index_1 = index_2
+                index_2 += 1
+                digit_1 = line[index_1]
+                digit_2 = line[index_2]
+            elif line[index_2] > digit_2:
+                digit_2 = line[index_2]
+                index_2 += 1
             else:
-                index2 += 1
-        sum += int(f'{digit1}{digit2}')
+                index_2 += 1
+        sum += int(f'{digit_1}{digit_2}')
     return sum
 
 def solvePartTwo(data: list[str]):
@@ -63,9 +63,9 @@ def solvePartTwo(data: list[str]):
 
         for i in range(len(line)):
             digit = line[i]
-            remainingDigits = len(line) - i
+            remaining_digits = len(line) - i
             # If not enough digits to fill MAX_LENGTH, just add the digit
-            if remainingDigits + len(stack) <= MAX_LENGTH:
+            if remaining_digits + len(stack) <= MAX_LENGTH:
                 stack.append(digit)
                 continue
             # Pop smaller digits as long as we can still fill MAX_LENGTH
@@ -73,9 +73,9 @@ def solvePartTwo(data: list[str]):
                 stack.pop()
             stack.append(digit)
 
-        maxNum = int(''.join(stack[0:MAX_LENGTH]))
+        max_num = int(''.join(stack[0:MAX_LENGTH]))
 
-        sum += maxNum
+        sum += max_num
     return sum
 
 print(f'Solution for Part One: {solvePartOne(data)}')

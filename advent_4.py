@@ -100,7 +100,7 @@ def solvePartTwo(grid: Grid) -> int:
     """
     Process the grid to remove accessible rolls iteratively until none remain
     """
-    rolls_removed = 0
+    num_rolls_removed = 0
     accessible_count = (
         grid.cols * grid.rows
     )  # maximum possible initial value is the total number of spaces
@@ -110,8 +110,8 @@ def solvePartTwo(grid: Grid) -> int:
         accessible_count = len(accessible_rolls)
 
         grid = removeRolls(grid, accessible_rolls)
-        rolls_removed += accessible_count
-    return rolls_removed
+        num_rolls_removed += accessible_count
+    return num_rolls_removed
 
 
 print(f"Solution for Part One: {solvePartOne(grid)}")

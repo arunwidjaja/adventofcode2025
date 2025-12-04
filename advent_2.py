@@ -38,20 +38,20 @@ def isRepeating(num: int) -> bool:
     # Concatenate the string with itself, then remove the first and last characters.
     # If the original string is found in this new string, then it is a repeating set.
     
-    doubledString = str(num) + str(num)
-    truncatedString = doubledString[1:-1]
-    if str(num) in truncatedString:
+    doubled_string = str(num) + str(num)
+    truncated_string = doubled_string[1:-1]
+    if str(num) in truncated_string:
         return True
     return False
 
 def solvePartOne(data: list[str]):
     invalids = {}
-    for curRange in data:
-        start = int(curRange.split('-')[0])
-        end = int(curRange.split('-')[1])
-        rangeNums = range(start, end + 1)
+    for range_current in data:
+        start = int(range_current.split('-')[0])
+        end = int(range_current.split('-')[1])
+        range_numbers = range(start, end + 1)
 
-        for num in rangeNums:
+        for num in range_numbers:
             # Since invalid IDs are repeating sets, their length must be even
             if len(str(num)) % 2 != 0:
                 continue
@@ -65,12 +65,12 @@ def solvePartOne(data: list[str]):
 
 def solvePartTwo(data: list[str]):
     invalids = {}
-    for curRange in data:
-        start = int(curRange.split('-')[0])
-        end = int(curRange.split('-')[1])
-        rangeNums = range(start, end + 1)
+    for range_current in data:
+        start = int(range_current.split('-')[0])
+        end = int(range_current.split('-')[1])
+        range_numbers = range(start, end + 1)
 
-        for num in rangeNums:
+        for num in range_numbers:
             # Check cache in case ranges are overlapping
             if num in invalids:
                 invalids[num] += 1
