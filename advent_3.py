@@ -9,15 +9,6 @@
 with open('advent_3_input.txt', 'r') as file:
     data = file.read().splitlines()
 
-# Case 1: Find a digit higher than the first digit
-#  Use this as the new first digit
-# Case 2: Find a digit that is not higher than the first digit but higher than the second digit
-#   Use this as the new second digit
-# Case 3: Find a digit that is not higher than either digit
-#   Move on
-
-
-
 def solvePartOne(data: list[str]):
     """
     Find the maximum two-digit combination from each line of digits.
@@ -34,8 +25,10 @@ def solvePartOne(data: list[str]):
 
         while index_2 < len(line):
             if digit_1 == '9' and digit_2 == '9':
+                # Can't do better than 99
                 break
             if line[index_2] > digit_1 and index_2 < len(line) - 1:
+                # Found a new larger digit
                 index_1 = index_2
                 index_2 += 1
                 digit_1 = line[index_1]
