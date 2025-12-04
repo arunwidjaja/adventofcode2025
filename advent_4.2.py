@@ -43,15 +43,14 @@ def getAccessibleRolls(grid):
                         rollNeighborCounts[(ni, nj)] = rollNeighborCounts.get((ni, nj), 0) + 1
 
     # return rolls with fewer than 4 neighbors
-    accessible_rolls = (key for key, value in rollNeighborCounts.items() if value < 4)
+    accessible_rolls = [key for key, value in rollNeighborCounts.items() if value < 4]
     return accessible_rolls
 
 """
-Removes the accessible rolls from the grid and returns the resulting grid
+Removes the rolls from the grid and returns the resulting grid
 """
-def removeAccessibleRolls(grid):
-    accessible_rolls = getAccessibleRolls(grid)
-    for i, j in accessible_rolls:
+def removeRolls(grid, rolls):
+    for i, j in rolls:
         grid[i][j] = False
     return grid
 
@@ -60,14 +59,14 @@ Execute the removal process until no accessible rolls remain
 """
 def process(grid):
     rolls_removed = 0
-    accessible_count = len(grid[0]) * len(grid[1]) # maximum possible initial value is every space
+    accessible_count = len(grid[0]) * len(grid) # maximum possible initial value is every space
 
     while accessible_count > 0:
         accessible_rolls = getAccessibleRolls(grid)
-        accessible_count = len(list(accessible_rolls))
+        accessible_count = len(accessible_rolls)
         print(f'Found {accessible_count} accessible rolls')
 
-        grid = removeAccessibleRolls(grid)
+        grid = removeRolls(grid, accessible_rolls)
         rolls_removed += accessible_count
     return rolls_removed
 
