@@ -2,7 +2,8 @@
 
 # Dial starts at 50
 # Dial goes from 0 to 99
-# The solution is the number of times the dial crosses over or lands on 0
+# The solution is the number of times the dial touches 0,
+# either by landing on it or crossing over it.
 
 import math
 
