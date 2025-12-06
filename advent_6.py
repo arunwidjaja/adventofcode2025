@@ -30,10 +30,9 @@ for i in range(n):
 
 
 # Part 2:
-# This time, need to store the values as a matrix.
 # Iterate through the last line first to get the operations and their indices
-# The index of the operation is the starting index of the values in the previous lines
-# The index of the next operation - 2 is the ending index of the values in the previous lines
+# The index of the operation character is the starting index of the values' characters in the previous lines
+# The index of the next operation - 2 is the ending index of the values' characters in the previous lines
 #   The -2 is because there is a space between operations
 # For each operation, store the values as a matrix:
 #   The number of rows is 4 (fixed input). The number of columns is the ending index - starting index + 1.
@@ -41,6 +40,20 @@ for i in range(n):
 #   store each character in the matrix at the corresponding row and column.
 # Then transpose the matrix.
 # Then perform the operation, using each row as the values to sum or product.
+
+# Example:
+# 36  9 44 
+# 11 32 89 
+# 64 52 42 
+#114 76 3  
+#+   *  *  
+
+# The first operation stores the values as a matrix of
+# [NULL, 3, 6], [NULL, 1, 1], [NULL, 6, 4], [1, 1, 4]
+# Transpose this to:
+# [NULL, NULL, NULL, 1], [3, 1, 6, 1], [6, 1, 4, 4]
+# Now, convert the rows into the values to sum or product
+# 1 + 3161 + 6144 = 9306
 
 # Read the raw file to work with individual characters
 with open('advent_6_input.txt', 'r') as file:
